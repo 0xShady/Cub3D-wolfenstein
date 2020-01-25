@@ -6,7 +6,7 @@
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 05:52:30 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/23 06:13:18 by ael-fadi         ###   ########.fr       */
+/*   Updated: 2020/01/25 20:21:22 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ void		check_game(t_game *game, t_map *map)
 	}
 	cheack_sprite(game);
 	if (game->res_x < 100 || game->res_y < 100)
-		log_global_error("Resolution is to small", game);
+		log_global_error("Small Resolution", game);
 	if (game->f < 0)
 		log_global_error("Unvalid floor color", game);
 	if (game->c < 0)
 		log_global_error("Unvalid ceiling color", game);
 	if (map->player_x == -1 || map->player_y == -1)
-		log_global_error("Unvalid player position on map", game);
+		log_global_error("Unvalid player position", game);
 	if ((map->map_row < 3 || map->map_col < 3))
 		log_global_error("Map is to small", game);
 	if (check_game_map(map) < 0)

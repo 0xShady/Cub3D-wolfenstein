@@ -6,7 +6,7 @@
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 05:52:56 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 12:56:07 by ael-fadi         ###   ########.fr       */
+/*   Updated: 2020/01/25 22:26:34 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ static int	key_press_hook(int key, void *game)
 		ptr_game->player.straf_r = -1;
 	if (key == ARROW_DOWN)
 		if (ptr_game->res_center > ptr_game->mid / 3)
-			ptr_game->res_center -= 10;
+			ptr_game->res_center -= 20;
 	if (key == ARROW_UP)
-		if (ptr_game->res_center < ptr_game->mid * 2.1)
-			ptr_game->res_center += 10;
-	if (key == SPACE)
-		ptr_game->isjump = 1;
+		if (ptr_game->res_center < ptr_game->mid * 3)
+			ptr_game->res_center += 20;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 05:53:06 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 02:50:33 by ael-fadi         ###   ########.fr       */
+/*   Updated: 2020/01/25 22:21:15 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,21 @@ void		init_player_on_map(t_map *map, t_player *player)
 
 static void	player_acutal(t_map *map, t_player *player, float n_x, float n_y)
 {
-	if (!is_wall(map, n_x, n_y) && !is_sprite(map, n_x, n_y))
+	if ((is_wall(map, n_x, n_y) == 0 || is_wall(map, n_x, n_y)
+		== 2) && !is_sprite(map, n_x, n_y))
 	{
 		player->x = n_x;
 		player->y = n_y;
 	}
 	else
 	{
-		if (!is_wall(map, player->x, n_y) &&
+		if ((is_wall(map, player->x, n_y) == 0
+			|| is_wall(map, player->x, n_y) == 2) &&
 			!is_sprite(map, player->x, n_y))
 			player->y = n_y;
-		else if (!is_wall(map, n_x, player->y)
-			&& !is_sprite(map, n_x, player->y))
+		else if ((is_wall(map, n_x, player->y) == 0
+			|| is_wall(map, n_x, player->y) == 2) &&
+			!is_sprite(map, n_x, player->y))
 			player->x = n_x;
 	}
 }
