@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 05:52:53 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 15:40:01 by ael-fadi         ###   ########.fr       */
+/*   Created: 2020/01/17 05:52:38 by ael-fadi          #+#    #+#             */
+/*   Updated: 2020/01/26 20:41:04 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ t_game			*game_initialization(void)
 	game->player = player_initialization();
 	game->fov = (FOV * (M_PI / 180));
 	game->save = 0;
-	game->isjump = 0;
 	game->tex[TEX_LIFE].path = ft_strdup("heart.xpm");
 	game->tex[TEX_SCOOP].path = ft_strdup("scoop.xpm");
 	return (game);

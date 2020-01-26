@@ -6,7 +6,7 @@
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 05:53:13 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/23 06:13:44 by ael-fadi         ###   ########.fr       */
+/*   Updated: 2020/01/26 20:40:17 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	read_floor_ceiling(char *line)
 	r = ft_atoi(split[0]);
 	g = ft_atoi(split[1]);
 	b = ft_atoi(split[2]);
-	if (r < 0 || g < 0 || b < 0)
+	if (r < 0 || g < 0 || b < 0 || r > 255 || g > 255 || b > 255)
 		return (-1);
 	free_split(split);
 	return ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
@@ -86,7 +86,7 @@ int			parse_file_game(int fd, char *line, t_game *game)
 	int		end;
 
 	end = 0;
-	while (end != 8 && (ret = get_next_line(fd, &line)) > 0)
+	while (end != 8 && (ret = get_next_line(fd, &line)) >= 0)
 	{
 		if (*line == 'R' && ++end)
 			read_resolution(line, game);
@@ -104,6 +104,8 @@ int			parse_file_game(int fd, char *line, t_game *game)
 			game->f = read_floor_ceiling(&line[1]);
 		else if (*line == 'C' && ++end)
 			game->c = read_floor_ceiling(&line[1]);
+		else if (*line != '\0' && *line != '\n')
+			log_global_error("invalid key", game);
 		free(line);
 	}
 	return (ret);

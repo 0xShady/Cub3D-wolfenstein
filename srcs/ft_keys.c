@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 05:52:56 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 22:26:34 by ael-fadi         ###   ########.fr       */
+/*   Created: 2020/01/17 05:52:38 by ael-fadi          #+#    #+#             */
+/*   Updated: 2020/01/26 20:39:17 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	key_press_hook(int key, void *game)
 		if (ptr_game->res_center > ptr_game->mid / 3)
 			ptr_game->res_center -= 20;
 	if (key == ARROW_UP)
-		if (ptr_game->res_center < ptr_game->mid * 3)
+		if (ptr_game->res_center < ptr_game->mid * 2)
 			ptr_game->res_center += 20;
 	return (0);
 }

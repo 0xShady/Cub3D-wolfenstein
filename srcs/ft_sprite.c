@@ -6,7 +6,7 @@
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 05:53:17 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/24 23:07:31 by ael-fadi         ###   ########.fr       */
+/*   Updated: 2020/01/26 21:37:28 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@ void		init_sprite(t_game *game, int x, int y)
 {
 	int			i;
 	t_sprite	*sprite;
+	t_sprite	*tmp;
 
 	i = -1;
 	game->num_sprite++;
-	if (!(sprite = malloc(sizeof(*sprite))))
+	if (!(sprite = malloc(sizeof(t_sprite))))
 		error_global(game);
 	sprite->x = x + 0.5;
 	sprite->y = y + 0.5;
 	sprite->texture = TEX_S;
-	if (game->sprite)
-		sprite->next = game->sprite;
+	sprite->next = NULL;
+	tmp = game->sprite;
+	if (!game->sprite)
+		game->sprite = sprite;
 	else
-		sprite->next = NULL;
-	game->sprite = sprite;
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = sprite;
+	}
 }
 
 static void	sort_sprite(t_sprite **begin)
@@ -49,7 +55,7 @@ static void	sort_sprite(t_sprite **begin)
 				sprite->next = next->next;
 				next->next = sprite;
 				if (before)
-					next->next = next;
+					before->next = next;
 				else
 					*begin = next;
 				sprite = *begin;

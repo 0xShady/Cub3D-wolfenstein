@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 05:53:09 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 14:25:06 by ael-fadi         ###   ########.fr       */
+/*   Created: 2020/01/17 05:52:38 by ael-fadi          #+#    #+#             */
+/*   Updated: 2020/01/26 21:45:01 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char *tmp_map)
 		if (ft_strcontaines(PLAYER_INIT_POS, str_row[col]))
 		{
 			game->map.player_dir = parse_game_player_dir(str_row[col]);
-			game->map.player_x = col + 0.5;
-			game->map.player_y = row + 0.5;
+			game->map.player_x = col;
+			game->map.player_y = row;
 			(*player)++;
 		}
 		if (*player > 1)
@@ -42,7 +42,7 @@ char *tmp_map)
 	return (str_row);
 }
 
-static int	ft_fucknorminte(char **line)
+static int	help(char **line)
 {
 	int		i;
 	int		idx;
@@ -67,7 +67,7 @@ static int	read_file_helper(int fd, char *line, char **map, int *row)
 	{
 		if (ft_strcontaines(MAP_GAME, *line) && ++(*row) && (i = -1))
 		{
-			idx = ft_fucknorminte(&line);
+			idx = help(&line);
 			if (last_idx != idx && last_idx != -1)
 				*map = ft_strjoin(*map, "Map_Error");
 			last_idx = idx;

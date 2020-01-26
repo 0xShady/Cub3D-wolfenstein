@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 05:55:21 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 16:01:53 by ael-fadi         ###   ########.fr       */
+/*   Created: 2020/01/17 05:52:38 by ael-fadi          #+#    #+#             */
+/*   Updated: 2020/01/26 20:39:27 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@
 # define FAC_RIGHT 3
 # define ARROW_UP 126
 # define ARROW_DOWN 125
-
-
 
 typedef struct	s_img
 {
@@ -176,7 +174,7 @@ void			screen_shot(t_game *game);
 void			init_sprite(t_game *game, int x, int y);
 void			init_textute(t_game *game);
 void			generete_sprite(t_game *game, t_player *player);
-void			caste_all_ray(t_game *game, t_player *player);
+void			cast_all_ray(t_game *game, t_player *player);
 void			ft_render_wall(t_game *game, t_player *player);
 void			check_game(t_game *game, t_map *map);
 void			read_file_game(char *file, char *save, t_game *game);
@@ -206,4 +204,6 @@ void			create_bmp(t_game *game);
 void			free_split(char **split);
 int				ft_isallnumber(char *split);
 int				parse_game_player_dir(char coord);
+void			ft_scoop(t_game *game);
+void			life_bar(t_game *game);
 #endif

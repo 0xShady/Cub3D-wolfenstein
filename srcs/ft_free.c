@@ -6,7 +6,7 @@
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 05:52:44 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/23 06:13:31 by ael-fadi         ###   ########.fr       */
+/*   Updated: 2020/01/26 20:31:33 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	free_all(t_game *game)
 	{
 		mlx_destroy_image(game->mlx_ptr, game->tex[i].ptr);
 		free(game->tex[i].path);
+		game->tex[i].path = NULL;
 	}
 	if (game->sprite)
 		free_sprite(&game->sprite);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 05:52:30 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 20:21:22 by ael-fadi         ###   ########.fr       */
+/*   Created: 2020/01/17 05:52:38 by ael-fadi          #+#    #+#             */
+/*   Updated: 2020/01/26 18:31:36 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	check_game_map(t_map *map)
 	return (1);
 }
 
-void		cheack_sprite(t_game *game)
+void		check_sprite(t_game *game)
 {
 	if (game->tex[TEX_NO].path == NULL)
 		log_global_error("north texture not specifed", game);
@@ -64,8 +64,8 @@ void		check_game(t_game *game, t_map *map)
 		game->res_x = DEFAULT_WINDOW_X;
 		game->res_y = DEFAULT_WINDOW_Y;
 	}
-	cheack_sprite(game);
-	if (game->res_x < 100 || game->res_y < 100)
+	check_sprite(game);
+	if (game->res_x < 300 || game->res_y < 300)
 		log_global_error("Small Resolution", game);
 	if (game->f < 0)
 		log_global_error("Unvalid floor color", game);

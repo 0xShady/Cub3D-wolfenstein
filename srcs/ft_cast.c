@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fadi <ael-fadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 05:52:27 by ael-fadi          #+#    #+#             */
-/*   Updated: 2020/01/25 16:19:53 by ael-fadi         ###   ########.fr       */
+/*   Created: 2020/01/17 05:52:38 by ael-fadi          #+#    #+#             */
+/*   Updated: 2020/01/26 00:04:54 by ael-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static void	cast_ray(t_game *game, t_player *player, t_map *map, t_ray *ray)
 	}
 }
 
-void		caste_all_ray(t_game *game, t_player *player)
+void		cast_all_ray(t_game *game, t_player *player)
 {
 	float	ray_angle;
 	int		id;
